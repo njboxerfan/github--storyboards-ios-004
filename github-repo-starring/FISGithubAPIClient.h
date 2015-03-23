@@ -20,6 +20,7 @@ NSString *const GITHUB_API_URL;
  *  @param completionBlock Block to be called when finished retreiving from the API. Passes an `NSArray` of `NSDictionary` objects from the API.
  */
 
++(void)getAuthenticatedUser:(void (^)(NSDictionary *))completionBlock;
 +(void)getRepositoriesWithCompletion:(void (^)(NSArray *repoDictionaries))completionBlock;
 +(void)getUserRepositoriesWithCompletion:(void (^)(NSArray *))completionBlock;
 +(void)checkIfRepoIsStarredWithFullName:(NSString *)fullName CompletionBlock:(void (^)(BOOL starred))completionBlock;

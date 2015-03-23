@@ -9,6 +9,7 @@
 #import "FISConfirmGithubViewController.h"
 
 @interface FISConfirmGithubViewController ()
+
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 @end
@@ -18,6 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.nameLabel.text = self.fullName;
 }
 
 - (void)didReceiveMemoryWarning {

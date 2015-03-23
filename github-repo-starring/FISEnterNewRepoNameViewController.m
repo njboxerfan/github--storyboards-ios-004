@@ -34,9 +34,13 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    self.repo.name = self.repoName.text;
+    
+//    self.repo.name = self.repoName.text;
+    
     FISConfirmRepoNameViewController *destVC = segue.destinationViewController;
+    
     destVC.repo = self.repo;
+    destVC.whatever = self.repoName.text;
 }
 
 @end

@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @class FISGithubRepository;
+
 @interface FISEnterNewRepoNameViewController : UIViewController
+
 @property (strong, nonatomic) FISGithubRepository *repo;
+
 @end

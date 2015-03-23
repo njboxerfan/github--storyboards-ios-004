@@ -9,6 +9,8 @@
 #import "FISLoginViewController.h"
 #import "FISConstants.h"
 #import "FISGithubAPIClient.h"
+#import "FISConfirmGithubViewController.h"
+#import "FISReposTableViewController.h"
 
 @interface FISLoginViewController ()
 - (IBAction)loginTapped:(id)sender;
@@ -30,15 +32,40 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(credentialsStored) name:@"githubCredentialStored" object:nil];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-
-    if ([FISGithubAPIClient loggedIn]) {
+    
+    if ([FISGithubAPIClient loggedIn])
+    {
         [self dismissViewControllerAnimated:YES completion:nil];
     }
+}
+
+-(void)credentialsStored
+{
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    [FISGithubAPIClient getAuthenticatedUser:^(NSDictionary *userInfo) {
+        
+        FISConfirmGithubViewController *confirmGithubVC = [self.storyboard instantiateViewControllerWithIdentifier:@"confirmGithubViewController"];
+        
+        confirmGithubVC.fullName = userInfo[@"name"];
+        
+        FISReposTableViewController *reposTableVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"reposTableViewController"];
+        
+        UINavigationController *presentingNavVC = (UINavigationController *)self.presentingViewController;
+        
+        [presentingNavVC setViewControllers:@[reposTableVC,confirmGithubVC]];
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning

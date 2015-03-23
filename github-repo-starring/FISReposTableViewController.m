@@ -67,7 +67,10 @@
 
 - (void) signInTapped
 {
-    FISLoginViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"loginViewController"];
+    UIStoryboard *loginStoryboard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+    
+    FISLoginViewController *loginVC = [loginStoryboard instantiateViewControllerWithIdentifier:@"loginViewController"];
+    
     [self presentViewController:loginVC animated:YES completion:nil];
 }
 

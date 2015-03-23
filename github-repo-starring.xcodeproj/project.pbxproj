@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		56082481EB074ABFA6B17BEE /* libPods-github-repo-starringTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C162AE1AB9ED4995B090E11B /* libPods-github-repo-starringTests.a */; };
 		8F22EA0779774795A9381EE9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9386AE5B2144E1AAB0E871 /* libPods.a */; };
+		A0CFC8721AC0B60E00E776FC /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0CFC8711AC0B60E00E776FC /* Login.storyboard */; };
 		D8245AAD1982E0C9002F3428 /* FISLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8245AAC1982E0C9002F3428 /* FISLoginViewController.m */; };
 		D82DB6C01921613300FA0E08 /* not_starred.json in Resources */ = {isa = PBXBuildFile; fileRef = D82DB6BF1921613300FA0E08 /* not_starred.json */; };
 		D82DB6C11921613300FA0E08 /* not_starred.json in Resources */ = {isa = PBXBuildFile; fileRef = D82DB6BF1921613300FA0E08 /* not_starred.json */; };
@@ -55,6 +56,7 @@
 		1D9386AE5B2144E1AAB0E871 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		213CE4C35DF3B53DA4413F2F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		260340FBDB9780AE631EB406 /* Pods-github-repo-starringTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-github-repo-starringTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-github-repo-starringTests/Pods-github-repo-starringTests.release.xcconfig"; sourceTree = "<group>"; };
+		A0CFC8711AC0B60E00E776FC /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		AAA73EC82CD790AA17901C24 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C162AE1AB9ED4995B090E11B /* libPods-github-repo-starringTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-github-repo-starringTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8245AAB1982E0C9002F3428 /* FISLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISLoginViewController.h; sourceTree = "<group>"; };
@@ -172,27 +174,28 @@
 		D871ACA419210D190029CCC8 /* github-repo-starring */ = {
 			isa = PBXGroup;
 			children = (
-				D8B1217E1AC04F7100A91055 /* FISConfirmGithubViewController.h */,
-				D8B1217F1AC04F7100A91055 /* FISConfirmGithubViewController.m */,
-				D871ACD319210D970029CCC8 /* FISReposTableViewController.h */,
-				D871ACD419210D970029CCC8 /* FISReposTableViewController.m */,
+				D871ACAD19210D190029CCC8 /* FISAppDelegate.h */,
+				D871ACAE19210D190029CCC8 /* FISAppDelegate.m */,
 				D871ACD519210D970029CCC8 /* FISConstants.h */,
 				D871ACD619210D970029CCC8 /* FISConstants.m */,
 				D871ACD719210D970029CCC8 /* FISGithubAPIClient.h */,
 				D871ACD819210D970029CCC8 /* FISGithubAPIClient.m */,
 				D871ACD919210D970029CCC8 /* FISReposDataStore.h */,
 				D871ACDA19210D970029CCC8 /* FISReposDataStore.m */,
-				D871ACAD19210D190029CCC8 /* FISAppDelegate.h */,
-				D871ACAE19210D190029CCC8 /* FISAppDelegate.m */,
-				D871ACE219210DAF0029CCC8 /* Main.storyboard */,
+				D871ACDF19210DA00029CCC8 /* FISGithubRepository.h */,
+				D871ACE019210DA00029CCC8 /* FISGithubRepository.m */,
+				D8245AAB1982E0C9002F3428 /* FISLoginViewController.h */,
+				D8245AAC1982E0C9002F3428 /* FISLoginViewController.m */,
+				D8B1217E1AC04F7100A91055 /* FISConfirmGithubViewController.h */,
+				D8B1217F1AC04F7100A91055 /* FISConfirmGithubViewController.m */,
+				D871ACD319210D970029CCC8 /* FISReposTableViewController.h */,
+				D871ACD419210D970029CCC8 /* FISReposTableViewController.m */,
 				D8B121811AC05FDC00A91055 /* FISEnterNewRepoNameViewController.h */,
 				D8B121821AC05FDC00A91055 /* FISEnterNewRepoNameViewController.m */,
 				D8B121841AC05FE700A91055 /* FISConfirmRepoNameViewController.h */,
 				D8B121851AC05FE700A91055 /* FISConfirmRepoNameViewController.m */,
-				D8245AAB1982E0C9002F3428 /* FISLoginViewController.h */,
-				D8245AAC1982E0C9002F3428 /* FISLoginViewController.m */,
-				D871ACDF19210DA00029CCC8 /* FISGithubRepository.h */,
-				D871ACE019210DA00029CCC8 /* FISGithubRepository.m */,
+				D871ACE219210DAF0029CCC8 /* Main.storyboard */,
+				A0CFC8711AC0B60E00E776FC /* Login.storyboard */,
 				D871ACB619210D190029CCC8 /* Images.xcassets */,
 				D871ACA519210D190029CCC8 /* Supporting Files */,
 			);
@@ -316,6 +319,7 @@
 			files = (
 				D871ACB719210D190029CCC8 /* Images.xcassets in Resources */,
 				D871ACED19210DF40029CCC8 /* repositories.json in Resources */,
+				A0CFC8721AC0B60E00E776FC /* Login.storyboard in Resources */,
 				D82DB6C01921613300FA0E08 /* not_starred.json in Resources */,
 				D871ACA919210D190029CCC8 /* InfoPlist.strings in Resources */,
 				D871ACE319210DAF0029CCC8 /* Main.storyboard in Resources */,

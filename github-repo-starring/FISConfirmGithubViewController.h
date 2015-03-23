@@ -10,4 +10,6 @@
 
 @interface FISConfirmGithubViewController : UIViewController
 
+@property (strong, nonatomic) NSString *fullName;
+
 @end

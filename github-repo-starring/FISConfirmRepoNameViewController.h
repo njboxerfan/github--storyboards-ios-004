@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @class FISGithubRepository;
+
 @interface FISConfirmRepoNameViewController : UIViewController
+
 @property (strong, nonatomic) FISGithubRepository *repo;
+
+@property NSString *whatever;
+
 @end

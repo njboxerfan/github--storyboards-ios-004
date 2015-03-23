@@ -7,10 +7,14 @@
 //
 
 #import "FISConfirmRepoNameViewController.h"
+#import "FISReposTableViewController.h"
 #import "FISGithubRepository.h"
+#import "FISGithubAPIClient.h"
 
 @interface FISConfirmRepoNameViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *confirmedName;
+
+- (IBAction)submitTapped:(id)sender;
 
 @end
 
@@ -18,7 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.confirmedName.text = self.repo.name;
+    
+    self.confirmedName.text = self.whatever;
     // Do any additional setup after loading the view.
 }
 
@@ -36,5 +41,21 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)submitTapped:(id)sender
+{
+    NSString *newName = self.confirmedName.text;
+    
+    [FISGithubAPIClient changeRepoWithFullName:self.repo.fullName newName:newName CompletionBlock:^(NSDictionary *repo) {
+        
+        FISReposTableViewController *reposTableVC = [self.storyboard instantiateViewControllerWithIdentifier:@"reposTableViewController"];
+        
+        UINavigationController *presentingNavVC = (UINavigationController *)self.navigationController;
+        
+        [presentingNavVC setViewControllers:@[reposTableVC]];
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+}
 
 @end

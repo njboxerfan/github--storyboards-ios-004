@@ -8,6 +8,8 @@
 
 #import "FISGithubAPIClient.h"
 #import "FISConstants.h"
+#import "FISConfirmGithubViewController.h"
+#import "FISLoginViewController.h"
 #import <AFNetworking.h>
 #import <AFOAuth2Manager.h>
 #import <AFOAuth2Manager/AFHTTPRequestSerializer+OAuth2.h>
@@ -23,12 +25,30 @@ NSString *const GITHUB_API_URL=@"https://api.github.com";
     return credential != nil;
 }
 
++(void)getAuthenticatedUser:(void (^)(NSDictionary *))completionBlock
+{
+    NSString *githubURL = [NSString stringWithFormat:@"%@/user",GITHUB_API_URL];
+    
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
+    
+    AFOAuthCredential *credential =
+    [AFOAuthCredential retrieveCredentialWithIdentifier:@"githubToken"];
+    
+    [manager.requestSerializer setAuthorizationHeaderFieldWithCredential:credential];
+    
+    [manager GET:githubURL parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        completionBlock(responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"Fail: %@",error.localizedDescription);
+    }];
+}
+
 +(void)getRepositoriesWithCompletion:(void (^)(NSArray *))completionBlock
 {
     NSString *githubURL = [NSString stringWithFormat:@"%@/repositories?client_id=%@&client_secret=%@",GITHUB_API_URL,GITHUB_CLIENT_ID,GITHUB_CLIENT_SECRET];
-
+    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-
+    
     [manager GET:githubURL parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         completionBlock(responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -101,7 +121,10 @@ NSString *const GITHUB_API_URL=@"https://api.github.com";
         NSDictionary *responseRepo = responseObject;
 
         completionBlock(responseRepo);
-    } failure:nil];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"FAIL:%@",error.localizedDescription);
+        completionBlock(nil);
+    }];
 }
 
 +(void)starRepoWithFullName:(NSString *)fullName CompletionBlock:(void (^)(void))completionBlock
@@ -143,6 +166,8 @@ NSString *const GITHUB_API_URL=@"https://api.github.com";
 
 + (void)getAccessTokenWithCode:(NSString *)code
 {
+    [AFOAuthCredential deleteCredentialWithIdentifier:@"githubToken"];
+    
     NSURL *baseURL = [NSURL URLWithString:@"https://github.com"];
     AFOAuth2Manager *manager = [[AFOAuth2Manager alloc] initWithBaseURL:baseURL clientID:GITHUB_CLIENT_ID secret:GITHUB_CLIENT_SECRET];
     
@@ -154,6 +179,9 @@ NSString *const GITHUB_API_URL=@"https://api.github.com";
                                              [AFOAuthCredential storeCredential:credential
                                                                  withIdentifier:@"githubToken"];
                                              NSLog(@"Got Access");
+                                             
+                                             [[NSNotificationCenter defaultCenter] postNotificationName:@"githubCredentialStored" object:nil];
+                                             
                                          } failure:^(NSError *error) {
                                              NSLog(@"Fail: %@",error.localizedDescription);
                                          }];
