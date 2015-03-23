@@ -1,0 +1,62 @@
+PODS:
+  - AFNetworking (2.5.1):
+    - AFNetworking/NSURLConnection (= 2.5.1)
+    - AFNetworking/NSURLSession (= 2.5.1)
+    - AFNetworking/Reachability (= 2.5.1)
+    - AFNetworking/Security (= 2.5.1)
+    - AFNetworking/Serialization (= 2.5.1)
+    - AFNetworking/UIKit (= 2.5.1)
+  - AFNetworking/NSURLConnection (2.5.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.1)
+  - AFNetworking/Security (2.5.1)
+  - AFNetworking/Serialization (2.5.1)
+  - AFNetworking/UIKit (2.5.1):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - AFOAuth2Manager (2.2.0):
+    - AFNetworking/NSURLConnection (~> 2.2)
+  - Expecta (0.2.4)
+  - KIF (3.2.0):
+    - KIF/XCTest (= 3.2.0)
+  - KIF/XCTest (3.2.0)
+  - NSURL+ParseQuery (0.1)
+  - OCHamcrest (4.1.1)
+  - OCMockito (1.4.0):
+    - OCHamcrest (~> 4.0)
+  - OHHTTPStubs (3.1.11):
+    - OHHTTPStubs/Core (= 3.1.11)
+  - OHHTTPStubs/Core (3.1.11)
+  - Specta (0.2.1)
+  - Swizzlean (0.2.0)
+
+DEPENDENCIES:
+  - AFNetworking
+  - AFOAuth2Manager
+  - Expecta (~> 0.2.4)
+  - KIF (~> 3.0)
+  - NSURL+ParseQuery
+  - OCMockito (~> 1.0)
+  - OHHTTPStubs
+  - Specta (~> 0.2.1)
+  - Swizzlean
+
+SPEC CHECKSUMS:
+  AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
+  AFOAuth2Manager: 5e05a890dbe51d3e84091a01560f0534eb1dd7d2
+  Expecta: 112bcafa2304ee0f3c5e586505f24555a47b25d5
+  KIF: 6f94a23566fd05b809f5d3bc5231a965b51121b9
+  NSURL+ParseQuery: 044dd433a061d69368a392670341d2ff9006a0f5
+  OCHamcrest: af1c7c5ea345de69ea6c9c2958f65f3044e5c420
+  OCMockito: 991936bb775cc4c27f063d38f5e17b9161fbd21c
+  OHHTTPStubs: e6ecc3fd4fa11b2cfb5f4823421bddc95a82913d
+  Specta: 9141310f46b1f68b676650ff2854e1ed0b74163a
+  Swizzlean: dc03ad1d847a3748f456982b7ede4e3bad4a9630
+
+COCOAPODS: 0.35.0
