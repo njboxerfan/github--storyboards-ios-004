@@ -123,13 +123,24 @@
     }];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+-(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    FISEnterNewRepoNameViewController *destVC = segue.destinationViewController;
-
-    NSIndexPath *ip = [self.tableView indexPathForCell:sender];
-    FISGithubRepository *repo = self.dataStore.repositories[ip.row];
+    FISEnterNewRepoNameViewController *destVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newRepoNameVC"];
+    
+//    NSIndexPath *ip = [self.tableView indexPathForCell:sender];
+    FISGithubRepository *repo = self.dataStore.repositories[indexPath.row];
     destVC.repo = repo;
+    
+    [self.navigationController pushViewController:destVC animated:YES];
 }
+
+//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    FISEnterNewRepoNameViewController *destVC = segue.destinationViewController;
+//
+//    NSIndexPath *ip = [self.tableView indexPathForCell:sender];
+//    FISGithubRepository *repo = self.dataStore.repositories[ip.row];
+//    destVC.repo = repo;
+//}
 
 @end

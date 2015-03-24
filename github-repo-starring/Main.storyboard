@@ -30,9 +30,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="OJj-bh-CWi" kind="push" trigger="accessoryAction" id="kYF-XP-Jnj"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -49,7 +46,7 @@
         <!--Change Name-->
         <scene sceneID="sxp-Hg-hXm">
             <objects>
-                <viewController id="OJj-bh-CWi" customClass="FISEnterNewRepoNameViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newRepoNameVC" id="OJj-bh-CWi" customClass="FISEnterNewRepoNameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3m2-aF-1zN"/>
                         <viewControllerLayoutGuide type="bottom" id="r1n-h8-UUK"/>
